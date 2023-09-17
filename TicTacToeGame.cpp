@@ -383,34 +383,56 @@ void AI_level1() {
 int AI_level2() {
 	static int value = 0; //to understand whose turn.The turn player 1 if value % 2 = 0 .The turn player AI if value % 2 = 1	
 	if (value % 2 == 0) {
+	k:
 		cout << "Player 1 [X] choose location which you want (Enter between 1 and 9 ):";
-		turn = 'X';
 		cin >> location;
-		board[location] = turn;
-		value++;
+		if (board[location] != 'X' && board[location] != 'O') {
+			board[location] = 'X';
+			value++;
+			return -1;
+		}
+		else {
+			cout << "Location is full, Please enter again" << endl;
+			goto k;
+		}
 	}
 	if (value % 2 == 1) {
-		if (firsrowcontrol())
+		if (secondrowcontrol() == -1)
 		{
 			value++;
 			return -1;
 		}
-		if (secondrowcontrol())
+		else if (firsrowcontrol() == -1)
 		{
 			value++;
 			return -1;
 		}
-		if (thirdrowcontrol())
+		else if (thirdrowcontrol() == -1)
 		{
 			value++;
 			return -1;
 		}
-		if (crosscontrol1())
+		else if (firstcolumncontrol() == -1)
 		{
 			value++;
 			return -1;
 		}
-		if (crosscontrol2())
+		else if (secondcolumncontrol() == -1)
+		{
+			value++;
+			return -1;
+		}
+		else if (thirdcolumncontrol() == -1)
+		{
+			value++;
+			return -1;
+		}
+		else if (crosscontrol1() == -1)
+		{
+			value++;
+			return -1;
+		}
+		else if (crosscontrol2() == -1)
 		{
 			value++;
 			return -1;
@@ -420,11 +442,12 @@ int AI_level2() {
 		if (locationcontrol(num))
 		{
 			board[num] = 'O';
+			value++;
+			return -1;
 		}
 		else {
 			goto d;
 		}
-		value++;
 	}
 }
 
