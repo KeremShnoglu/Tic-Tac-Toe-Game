@@ -16,6 +16,9 @@ int randomnumber();//This function to turn random number
 int firsrowcontrol();//1,2,3 locations
 int secondrowcontrol();//4,5,6 locations
 int thirdrowcontrol();//7,8,9 locations
+int firstcolumncontrol();//1,4,7 locations
+int secondcolumncontrol();//2,5,8 locations 
+int thirdcolumncontrol();//3,6,9 locations
 int crosscontrol1();//1,5,9 locations
 int crosscontrol2();//3,5,7 locations
 void Display_Board();//This function to show the board of Tic Tac Toe Game 
@@ -108,71 +111,114 @@ b:
 	int firsrowcontrol() {
 		if ((board[1] == 'X' && board[2] == 'X') || (board[1] == 'O' && board[2] == 'O')) {
 			board[3] = 'O';
-			return 1;
+			return -1;
+
 		}
 		if ((board[2] == 'X' && board[3] == 'X') || (board[2] == 'O' && board[3] == 'O')) {
 			board[1] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[1] == 'X' && board[3] == 'X') || (board[1] == 'O' && board[3] == 'O')) {
 			board[2] = 'O';
-			return 1;
+			return -1;
 		}
 	}
 	int secondrowcontrol() {
 		if ((board[4] == 'X' && board[5] == 'X') || (board[4] == 'O' && board[5] == 'O')) {
 			board[6] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[5] == 'X' && board[6] == 'X') || (board[5] == 'O' && board[6] == 'O')) {
 			board[4] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[4] == 'X' && board[6] == 'X') || (board[4] == 'O' && board[6] == 'O')) {
 			board[5] = 'O';
-			return 1;
+			return -1;
 		}
 	}
 	int thirdrowcontrol() {
 		if ((board[7] == 'X' && board[8] == 'X') || (board[7] == 'O' && board[8] == 'O')) {
 			board[9] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[8] == 'X' && board[9] == 'X') || (board[8] == 'O' && board[9] == 'O')) {
 			board[7] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[7] == 'X' && board[9] == 'X') || (board[7] == 'O' && board[9] == 'O')) {
 			board[8] = 'O';
-			return 1;
+			return -1;
+		}
+	}
+	int firstcolumncontrol() {
+		if ((board[1] == 'X' && board[4] == 'X') || (board[1] == 'O' && board[4] == 'O')) {
+			board[7] = 'O';
+			return -1;
+		}
+		if ((board[1] == 'X' && board[7] == 'X') || (board[1] == 'O' && board[7] == 'O')) {
+			board[4] = 'O';
+			return -1;
+		}
+		if ((board[4] == 'X' && board[7] == 'X') || (board[4] == 'O' && board[7] == 'O')) {
+			board[1] = 'O';
+			return -1;
+		}
+	}
+	int secondcolumncontrol() {
+		if ((board[2] == 'X' && board[5] == 'X') || (board[2] == 'O' && board[5] == 'O')) {
+			board[8] = 'O';
+			return -1;
+		}
+		if ((board[5] == 'X' && board[8] == 'X') || (board[5] == 'O' && board[8] == 'O')) {
+			board[2] = 'O';
+			return -1;
+		}
+		if ((board[2] == 'X' && board[8] == 'X') || (board[2] == 'O' && board[8] == 'O')) {
+			board[5] = 'O';
+			return -1;
+		}
+	}
+	int thirdcolumncontrol() {
+		if ((board[3] == 'X' && board[6] == 'X') || (board[3] == 'O' && board[6] == 'O')) {
+			board[9] = 'O';
+			return -1;
+		}
+		if ((board[6] == 'X' && board[9] == 'X') || (board[6] == 'O' && board[9] == 'O')) {
+			board[3] = 'O';
+			return -1;
+		}
+		if ((board[3] == 'X' && board[9] == 'X') || (board[3] == 'O' && board[9] == 'O')) {
+			board[6] = 'O';
+			return -1;
 		}
 	}
 	int crosscontrol1() {
 		if ((board[1] == 'X' && board[5] == 'X') || (board[1] == 'O' && board[5] == 'O')) {
 			board[9] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[5] == 'X' && board[9] == 'X') || (board[5] == 'O' && board[9] == 'O')) {
 			board[1] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[1] == 'X' && board[9] == 'X') || (board[1] == 'O' && board[9] == 'O')) {
 			board[5] = 'O';
-			return 1;
+			return -1;
 		}
 	}
 	int crosscontrol2() {
 		if ((board[3] == 'X' && board[5] == 'X') || (board[3] == 'O' && board[5] == 'O')) {
 			board[7] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[5] == 'X' && board[7] == 'X') || (board[5] == 'O' && board[7] == 'O')) {
 			board[3] = 'O';
-			return 1;
+			return -1;
 		}
 		if ((board[3] == 'X' && board[7] == 'X') || (board[3] == 'O' && board[7] == 'O')) {
 			board[5] = 'O';
-			return 1;
+			return -1;
 		}
 	}
 
@@ -360,10 +406,10 @@ void AI_level1() {
 
 	static int value = 0; //to understand whose turn.The turn player 1 if value % 2 = 0 .The turn player AI if value % 2 = 1
 	if (value % 2 == 0) {
+		k:
 		cout << "Player 1 [X] choose location which you want (Enter between 1 and 9 ):";
 		turn = 'X';
 		cin >> location;
-		board[location] = turn;
 		value++;
 	}
 	if (value % 2 == 1) {
@@ -449,5 +495,6 @@ int AI_level2() {
 			goto d;
 		}
 	}
+	return -1;
 }
 
